@@ -1,9 +1,20 @@
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../store/useTheme";
+
 function Header() {
+  const navigate = useNavigate();
+
+  const toggle = useTheme((state) => state.toggle);
+
   return (
     <>
       <header className="shadow-md flex justify-between py-8 px-4 items-center">
-        <h2 className="font-bold text-[14px]">Where in the world?</h2>
-        <button className="font-semibold text-[12px]">🌙 Dark Mode</button>
+        <h2 onClick={() => navigate(`/`)} className="cursor-pointer font-bold text-[14px]">
+          Where in the world?
+        </h2>
+        <button onClick={toggle} className="font-semibold cursor-pointer text-[12px]">
+          🌙 Dark Mode
+        </button>
       </header>
     </>
   );

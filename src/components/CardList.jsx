@@ -9,7 +9,7 @@ function CardList() {
 
   console.log(data);
   return (
-    <div>
+    <div className="flex flex-col items-center gap-10">
       {data.map((item) => (
         <Card key={item.cca3} obj={item} />
       ))}
