@@ -5,10 +5,15 @@ function Header() {
   const navigate = useNavigate();
 
   const toggle = useTheme((state) => state.toggle);
+  const isDark = useTheme((state) => state.isDark);
+
+  const dark = isDark ? "bg-gray-800 text-white" : "";
+
+  // console.log(typeof window.localStorage.getItem("isDark"));
 
   return (
     <>
-      <header className="shadow-md flex justify-between py-8 px-4 items-center">
+      <header className={`${dark} shadow-md flex justify-between py-8 px-4 items-center`}>
         <h2 onClick={() => navigate(`/`)} className="cursor-pointer font-bold text-[14px]">
           Where in the world?
         </h2>
